@@ -1,0 +1,183 @@
+{
+  "stageNumber": 3,
+  "name": "Stormbreaker Pier",
+  "worldId": "ocean_crossing",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_bridge_water",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 0,
+  "trackLength": 168,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 24,
+      "left": {
+        "type": "sub",
+        "value": 3,
+        "label": "-3"
+      },
+      "right": {
+        "type": "add",
+        "value": 5,
+        "label": "+5"
+      }
+    },
+    {
+      "z": 57,
+      "left": {
+        "type": "damage_buff",
+        "value": 20,
+        "label": "+20% DMG"
+      },
+      "right": {
+        "type": "add",
+        "value": 7,
+        "label": "+7"
+      }
+    },
+    {
+      "z": 94,
+      "left": {
+        "type": "sub",
+        "value": 4,
+        "label": "-4"
+      },
+      "right": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      }
+    },
+    {
+      "z": 124,
+      "left": {
+        "type": "rate_buff",
+        "value": 22,
+        "label": "+22% RATE"
+      },
+      "right": {
+        "type": "add",
+        "value": 8,
+        "label": "+8"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 41,
+      "x": -3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 12,
+      "hp": 55
+    },
+    {
+      "z": 83,
+      "x": 0,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 18
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 17,
+      "spawnZ": 40,
+      "groups": [
+        {
+          "enemyId": "tide_frog",
+          "count": 6,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 52,
+      "spawnZ": 79,
+      "groups": [
+        {
+          "enemyId": "reef_crab",
+          "count": 5,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "sea_hornet",
+          "count": 3,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "bilge_rat",
+          "count": 2,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 91,
+      "spawnZ": 118,
+      "groups": [
+        {
+          "enemyId": "tide_frog",
+          "count": 2,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "sea_viper",
+          "count": 2,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "tide_frog",
+          "count": 2,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.35,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 124,
+      "spawnZ": 150,
+      "groups": [
+        {
+          "enemyId": "bilge_rat",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "tide_mech_s3",
+    "assetId": "boss_stan",
+    "name": "Harbor Sentinel",
+    "hp": 15317,
+    "damage": 24,
+    "scale": 1.35,
+    "attackCooldown": 3.3,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "bilge_rat",
+    "summonCount": 3,
+    "rewardCoins": 81
+  },
+  "rewardCoins": 108
+}

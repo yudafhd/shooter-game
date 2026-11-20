@@ -1,0 +1,210 @@
+{
+  "stageNumber": 19,
+  "name": "Frostgate Trail",
+  "worldId": "frozen_pass",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_dungeon_floor_snow",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 6,
+  "trackLength": 170,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 24,
+      "left": {
+        "type": "sub",
+        "value": 9,
+        "label": "-9"
+      },
+      "right": {
+        "type": "add",
+        "value": 12,
+        "label": "+12"
+      }
+    },
+    {
+      "z": 58,
+      "left": {
+        "type": "damage_buff",
+        "value": 32,
+        "label": "+32% DMG"
+      },
+      "right": {
+        "type": "add",
+        "value": 14,
+        "label": "+14"
+      }
+    },
+    {
+      "z": 95,
+      "left": {
+        "type": "sub",
+        "value": 10,
+        "label": "-10"
+      },
+      "right": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      }
+    },
+    {
+      "z": 126,
+      "left": {
+        "type": "rate_buff",
+        "value": 31,
+        "label": "+31% RATE"
+      },
+      "right": {
+        "type": "add",
+        "value": 19,
+        "label": "+19"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 41,
+      "x": 3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 34,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    },
+    {
+      "z": 58,
+      "x": -3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 22,
+      "hp": 130
+    },
+    {
+      "z": 75,
+      "x": 0,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 28
+    },
+    {
+      "z": 92,
+      "x": 3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 34,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    },
+    {
+      "z": 109,
+      "x": -3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 22,
+      "hp": 130
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 17,
+      "spawnZ": 41,
+      "groups": [
+        {
+          "enemyId": "ice_bull",
+          "count": 12,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 53,
+      "spawnZ": 80,
+      "groups": [
+        {
+          "enemyId": "frost_vanguard",
+          "count": 10,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 7,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "frost_wolf",
+          "count": 6,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 92,
+      "spawnZ": 119,
+      "groups": [
+        {
+          "enemyId": "cryo_gunner",
+          "count": 1,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "cryo_gunner",
+          "count": 4,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "ice_bull",
+          "count": 5,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.8,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 126,
+      "spawnZ": 152,
+      "groups": [
+        {
+          "enemyId": "frost_wolf",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "frost_george_s19",
+    "assetId": "boss_george",
+    "name": "Permafrost Warden",
+    "hp": 167686,
+    "damage": 54,
+    "scale": 1.58,
+    "attackCooldown": 2.76,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "frost_wolf",
+    "summonCount": 3,
+    "rewardCoins": 273,
+    "tintHex": "#a3e4ff"
+  },
+  "rewardCoins": 364
+}

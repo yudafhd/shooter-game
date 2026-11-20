@@ -1,0 +1,202 @@
+{
+  "stageNumber": 13,
+  "name": "Redrock Highway",
+  "worldId": "dust_outpost",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_street_straight",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 4,
+  "trackLength": 164,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 23,
+      "left": {
+        "type": "sub",
+        "value": 6,
+        "label": "-6"
+      },
+      "right": {
+        "type": "add",
+        "value": 9,
+        "label": "+9"
+      }
+    },
+    {
+      "z": 56,
+      "left": {
+        "type": "damage_buff",
+        "value": 28,
+        "label": "+28% DMG"
+      },
+      "right": {
+        "type": "add",
+        "value": 11,
+        "label": "+11"
+      }
+    },
+    {
+      "z": 92,
+      "left": {
+        "type": "sub",
+        "value": 8,
+        "label": "-8"
+      },
+      "right": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      }
+    },
+    {
+      "z": 121,
+      "left": {
+        "type": "rate_buff",
+        "value": 28,
+        "label": "+28% RATE"
+      },
+      "right": {
+        "type": "add",
+        "value": 15,
+        "label": "+15"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 40,
+      "x": 3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 18,
+      "hp": 100
+    },
+    {
+      "z": 61,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 30,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.85
+    },
+    {
+      "z": 81,
+      "x": 0,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 18,
+      "hp": 95
+    },
+    {
+      "z": 102,
+      "x": 3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 18,
+      "hp": 100
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 16,
+      "spawnZ": 39,
+      "groups": [
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 10,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 51,
+      "spawnZ": 77,
+      "groups": [
+        {
+          "enemyId": "scrap_raider",
+          "count": 8,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 5,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 4,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 89,
+      "spawnZ": 115,
+      "groups": [
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 1,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 3,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 4,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.65,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 120,
+      "spawnZ": 146,
+      "groups": [
+        {
+          "enemyId": "jungle_raptor",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "dune_leela_s13",
+    "assetId": "boss_leela",
+    "name": "Sirocco Striker",
+    "hp": 88131,
+    "damage": 43,
+    "scale": 1.48,
+    "attackCooldown": 2.94,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "sand_drone",
+    "summonCount": 3,
+    "rewardCoins": 201,
+    "tintHex": "#ffd08a"
+  },
+  "rewardCoins": 268
+}

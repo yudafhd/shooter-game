@@ -1,0 +1,217 @@
+{
+  "stageNumber": 27,
+  "name": "Cinder Armory",
+  "worldId": "inferno_citadel",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_dungeon_floor_lava",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 8,
+  "trackLength": 192,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 27,
+      "left": {
+        "type": "sub",
+        "value": 12,
+        "label": "-12"
+      },
+      "right": {
+        "type": "add",
+        "value": 16,
+        "label": "+16"
+      }
+    },
+    {
+      "z": 65,
+      "left": {
+        "type": "damage_buff",
+        "value": 36,
+        "label": "+36% DMG"
+      },
+      "right": {
+        "type": "add",
+        "value": 18,
+        "label": "+18"
+      }
+    },
+    {
+      "z": 108,
+      "left": {
+        "type": "sub",
+        "value": 14,
+        "label": "-14"
+      },
+      "right": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      }
+    },
+    {
+      "z": 142,
+      "left": {
+        "type": "rate_buff",
+        "value": 34,
+        "label": "+34% RATE"
+      },
+      "right": {
+        "type": "add",
+        "value": 24,
+        "label": "+24"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 46,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    },
+    {
+      "z": 62,
+      "x": 0,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    },
+    {
+      "z": 78,
+      "x": 3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    },
+    {
+      "z": 94,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    },
+    {
+      "z": 110,
+      "x": 0,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    },
+    {
+      "z": 126,
+      "x": 3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 19,
+      "spawnZ": 46,
+      "groups": [
+        {
+          "enemyId": "pyro_juggernaut",
+          "count": 15,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 60,
+      "spawnZ": 90,
+      "groups": [
+        {
+          "enemyId": "obsidian_knight",
+          "count": 13,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 9,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "magma_raptor",
+          "count": 7,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 104,
+      "spawnZ": 134,
+      "groups": [
+        {
+          "enemyId": "pyro_juggernaut",
+          "count": 2,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "inferno_artillery",
+          "count": 6,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "pyro_juggernaut",
+          "count": 6,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.95,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 148,
+      "spawnZ": 174,
+      "groups": [
+        {
+          "enemyId": "ash_skull",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "cinder_stan_s27",
+    "assetId": "boss_stan",
+    "name": "Crucible Dreadnought",
+    "hp": 321755,
+    "damage": 69,
+    "scale": 1.65,
+    "attackCooldown": 2.58,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "magma_raptor",
+    "summonCount": 3,
+    "rewardCoins": 369,
+    "tintHex": "#ff7043"
+  },
+  "rewardCoins": 492
+}

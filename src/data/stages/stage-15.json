@@ -1,0 +1,210 @@
+{
+  "stageNumber": 15,
+  "name": "Scrapyard Trench",
+  "worldId": "dust_outpost",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_street_straight",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 4,
+  "trackLength": 180,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 25,
+      "left": {
+        "type": "sub",
+        "value": 7,
+        "label": "-7"
+      },
+      "right": {
+        "type": "add",
+        "value": 10,
+        "label": "+10"
+      }
+    },
+    {
+      "z": 61,
+      "left": {
+        "type": "damage_buff",
+        "value": 28,
+        "label": "+28% DMG"
+      },
+      "right": {
+        "type": "add",
+        "value": 12,
+        "label": "+12"
+      }
+    },
+    {
+      "z": 101,
+      "left": {
+        "type": "sub",
+        "value": 9,
+        "label": "-9"
+      },
+      "right": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      }
+    },
+    {
+      "z": 133,
+      "left": {
+        "type": "rate_buff",
+        "value": 28,
+        "label": "+28% RATE"
+      },
+      "right": {
+        "type": "add",
+        "value": 16,
+        "label": "+16"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 44,
+      "x": -3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 18,
+      "hp": 95
+    },
+    {
+      "z": 62,
+      "x": 0,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 18,
+      "hp": 100
+    },
+    {
+      "z": 80,
+      "x": 3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 30,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    },
+    {
+      "z": 98,
+      "x": -3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 18,
+      "hp": 95
+    },
+    {
+      "z": 116,
+      "x": 0,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 18,
+      "hp": 100
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 18,
+      "spawnZ": 43,
+      "groups": [
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 11,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 56,
+      "spawnZ": 85,
+      "groups": [
+        {
+          "enemyId": "scrap_raider",
+          "count": 9,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 6,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 5,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 97,
+      "spawnZ": 126,
+      "groups": [
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 2,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 4,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 4,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.65,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 136,
+      "spawnZ": 162,
+      "groups": [
+        {
+          "enemyId": "jungle_raptor",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "dune_leela_s15",
+    "assetId": "boss_leela",
+    "name": "Sirocco Striker",
+    "hp": 111406,
+    "damage": 47,
+    "scale": 1.48,
+    "attackCooldown": 2.94,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "sand_drone",
+    "summonCount": 3,
+    "rewardCoins": 225,
+    "tintHex": "#ffd08a"
+  },
+  "rewardCoins": 300
+}

@@ -1,0 +1,217 @@
+{
+  "stageNumber": 28,
+  "name": "Obsidian Spire",
+  "worldId": "inferno_citadel",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_dungeon_floor_lava",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 8,
+  "trackLength": 200,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 28,
+      "left": {
+        "type": "add",
+        "value": 16,
+        "label": "+16"
+      },
+      "right": {
+        "type": "sub",
+        "value": 12,
+        "label": "-12"
+      }
+    },
+    {
+      "z": 68,
+      "left": {
+        "type": "add",
+        "value": 18,
+        "label": "+18"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 36,
+        "label": "+36% DMG"
+      }
+    },
+    {
+      "z": 112,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 14,
+        "label": "-14"
+      }
+    },
+    {
+      "z": 148,
+      "left": {
+        "type": "add",
+        "value": 25,
+        "label": "+25"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 34,
+        "label": "+34% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 48,
+      "x": 3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    },
+    {
+      "z": 65,
+      "x": -3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    },
+    {
+      "z": 81,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    },
+    {
+      "z": 98,
+      "x": 3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    },
+    {
+      "z": 115,
+      "x": -3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    },
+    {
+      "z": 131,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 20,
+      "spawnZ": 48,
+      "groups": [
+        {
+          "enemyId": "obsidian_knight",
+          "count": 16,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 62,
+      "spawnZ": 94,
+      "groups": [
+        {
+          "enemyId": "pyro_juggernaut",
+          "count": 13,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "inferno_artillery",
+          "count": 9,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "ash_skull",
+          "count": 8,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 108,
+      "spawnZ": 140,
+      "groups": [
+        {
+          "enemyId": "inferno_artillery",
+          "count": 2,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 6,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "obsidian_knight",
+          "count": 6,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.95,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 156,
+      "spawnZ": 182,
+      "groups": [
+        {
+          "enemyId": "magma_raptor",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "hell_george_s28",
+    "assetId": "boss_george",
+    "name": "Obsidian Behemoth",
+    "hp": 345101,
+    "damage": 71,
+    "scale": 1.72,
+    "attackCooldown": 2.58,
+    "patterns": [
+      "projectile_barrage",
+      "area_slam",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": true,
+    "summonEnemyId": "ash_skull",
+    "summonCount": 3,
+    "rewardCoins": 381,
+    "tintHex": "#ff5233"
+  },
+  "rewardCoins": 508
+}

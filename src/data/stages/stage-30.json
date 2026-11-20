@@ -1,0 +1,218 @@
+{
+  "stageNumber": 30,
+  "name": "Citadel Overlord",
+  "worldId": "inferno_citadel",
+  "isWorldFinale": true,
+  "arenaAssetId": "env_dungeon_floor_lava",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 8,
+  "trackLength": 216,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 30,
+      "left": {
+        "type": "add",
+        "value": 17,
+        "label": "+17"
+      },
+      "right": {
+        "type": "sub",
+        "value": 12,
+        "label": "-12"
+      }
+    },
+    {
+      "z": 73,
+      "left": {
+        "type": "add",
+        "value": 19,
+        "label": "+19"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 36,
+        "label": "+36% DMG"
+      }
+    },
+    {
+      "z": 121,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 15,
+        "label": "-15"
+      }
+    },
+    {
+      "z": 160,
+      "left": {
+        "type": "add",
+        "value": 26,
+        "label": "+26"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 34,
+        "label": "+34% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 52,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.1
+    },
+    {
+      "z": 70,
+      "x": 0,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    },
+    {
+      "z": 88,
+      "x": 3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    },
+    {
+      "z": 106,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.1
+    },
+    {
+      "z": 124,
+      "x": 0,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    },
+    {
+      "z": 142,
+      "x": 3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 22,
+      "spawnZ": 52,
+      "groups": [
+        {
+          "enemyId": "obsidian_knight",
+          "count": 17,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 67,
+      "spawnZ": 102,
+      "groups": [
+        {
+          "enemyId": "pyro_juggernaut",
+          "count": 14,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "inferno_artillery",
+          "count": 10,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "ash_skull",
+          "count": 8,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 117,
+      "spawnZ": 151,
+      "groups": [
+        {
+          "enemyId": "pyro_juggernaut",
+          "count": 3,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 6,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "obsidian_knight",
+          "count": 7,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.95,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 172,
+      "spawnZ": 198,
+      "groups": [
+        {
+          "enemyId": "magma_raptor",
+          "count": 4,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "inferno_overlord_s30",
+    "assetId": "boss_trex",
+    "name": "Inferno Overlord Rex (World Finale)",
+    "hp": 544569,
+    "damage": 89,
+    "scale": 1.28,
+    "attackCooldown": 2.33,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": true,
+    "summonEnemyId": "ash_skull",
+    "summonCount": 4,
+    "rewardCoins": 465,
+    "tintHex": "#ff4b24"
+  },
+  "rewardCoins": 630
+}

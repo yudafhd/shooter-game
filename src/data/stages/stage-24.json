@@ -1,0 +1,218 @@
+{
+  "stageNumber": 24,
+  "name": "Glacier Sovereign",
+  "worldId": "frozen_pass",
+  "isWorldFinale": true,
+  "arenaAssetId": "env_dungeon_floor_snow",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 6,
+  "trackLength": 210,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 29,
+      "left": {
+        "type": "add",
+        "value": 14,
+        "label": "+14"
+      },
+      "right": {
+        "type": "sub",
+        "value": 10,
+        "label": "-10"
+      }
+    },
+    {
+      "z": 71,
+      "left": {
+        "type": "add",
+        "value": 16,
+        "label": "+16"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 32,
+        "label": "+32% DMG"
+      }
+    },
+    {
+      "z": 118,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 12,
+        "label": "-12"
+      }
+    },
+    {
+      "z": 155,
+      "left": {
+        "type": "add",
+        "value": 22,
+        "label": "+22"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 31,
+        "label": "+31% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 50,
+      "x": -3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 28
+    },
+    {
+      "z": 68,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 34,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    },
+    {
+      "z": 85,
+      "x": 3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 22,
+      "hp": 130
+    },
+    {
+      "z": 103,
+      "x": -3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 28
+    },
+    {
+      "z": 120,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 34,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    },
+    {
+      "z": 138,
+      "x": 3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 22,
+      "hp": 130
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 21,
+      "spawnZ": 50,
+      "groups": [
+        {
+          "enemyId": "frost_vanguard",
+          "count": 14,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 65,
+      "spawnZ": 99,
+      "groups": [
+        {
+          "enemyId": "ice_bull",
+          "count": 12,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "cryo_gunner",
+          "count": 8,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "frost_wolf",
+          "count": 7,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 113,
+      "spawnZ": 147,
+      "groups": [
+        {
+          "enemyId": "ice_bull",
+          "count": 3,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 5,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "frost_vanguard",
+          "count": 6,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.8,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 166,
+      "spawnZ": 192,
+      "groups": [
+        {
+          "enemyId": "frost_wolf",
+          "count": 4,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "glacier_rex_s24",
+    "assetId": "boss_trex",
+    "name": "Glacier Apex Titan (World Finale)",
+    "hp": 355019,
+    "damage": 75,
+    "scale": 1.18,
+    "attackCooldown": 2.51,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": true,
+    "summonEnemyId": "frost_wolf",
+    "summonCount": 4,
+    "rewardCoins": 393,
+    "tintHex": "#9ce2ff"
+  },
+  "rewardCoins": 534
+}

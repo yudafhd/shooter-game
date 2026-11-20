@@ -1,0 +1,184 @@
+{
+  "stageNumber": 4,
+  "name": "Siren Viaduct",
+  "worldId": "ocean_crossing",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_bridge_water",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 0,
+  "trackLength": 176,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 25,
+      "left": {
+        "type": "add",
+        "value": 5,
+        "label": "+5"
+      },
+      "right": {
+        "type": "sub",
+        "value": 3,
+        "label": "-3"
+      }
+    },
+    {
+      "z": 60,
+      "left": {
+        "type": "add",
+        "value": 7,
+        "label": "+7"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 20,
+        "label": "+20% DMG"
+      }
+    },
+    {
+      "z": 99,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 4,
+        "label": "-4"
+      }
+    },
+    {
+      "z": 130,
+      "left": {
+        "type": "add",
+        "value": 9,
+        "label": "+9"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 22,
+        "label": "+22% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 43,
+      "x": 3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 18
+    },
+    {
+      "z": 87,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 22,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 18,
+      "spawnZ": 42,
+      "groups": [
+        {
+          "enemyId": "reef_crab",
+          "count": 6,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 55,
+      "spawnZ": 83,
+      "groups": [
+        {
+          "enemyId": "tide_frog",
+          "count": 5,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "sea_viper",
+          "count": 3,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "bilge_rat",
+          "count": 2,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 95,
+      "spawnZ": 123,
+      "groups": [
+        {
+          "enemyId": "reef_crab",
+          "count": 2,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "sea_hornet",
+          "count": 2,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "reef_crab",
+          "count": 3,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.35,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 132,
+      "spawnZ": 158,
+      "groups": [
+        {
+          "enemyId": "bilge_rat",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "corsair_mech_s4",
+    "assetId": "boss_mike",
+    "name": "Iron Corsair",
+    "hp": 19681,
+    "damage": 26,
+    "scale": 1.4,
+    "attackCooldown": 3.3,
+    "patterns": [
+      "projectile_barrage",
+      "area_slam",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": true,
+    "summonEnemyId": "bilge_rat",
+    "summonCount": 3,
+    "rewardCoins": 93
+  },
+  "rewardCoins": 124
+}

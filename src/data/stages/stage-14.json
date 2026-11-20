@@ -1,0 +1,203 @@
+{
+  "stageNumber": 14,
+  "name": "Sunburst Checkpoint",
+  "worldId": "dust_outpost",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_street_straight",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 4,
+  "trackLength": 172,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 24,
+      "left": {
+        "type": "add",
+        "value": 10,
+        "label": "+10"
+      },
+      "right": {
+        "type": "sub",
+        "value": 7,
+        "label": "-7"
+      }
+    },
+    {
+      "z": 58,
+      "left": {
+        "type": "add",
+        "value": 12,
+        "label": "+12"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 28,
+        "label": "+28% DMG"
+      }
+    },
+    {
+      "z": 96,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 9,
+        "label": "-9"
+      }
+    },
+    {
+      "z": 127,
+      "left": {
+        "type": "add",
+        "value": 16,
+        "label": "+16"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 28,
+        "label": "+28% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 42,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 30,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.1
+    },
+    {
+      "z": 63,
+      "x": 3.6,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 18,
+      "hp": 95
+    },
+    {
+      "z": 85,
+      "x": -3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 18,
+      "hp": 100
+    },
+    {
+      "z": 106,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 30,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.1
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 17,
+      "spawnZ": 41,
+      "groups": [
+        {
+          "enemyId": "scrap_raider",
+          "count": 10,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 53,
+      "spawnZ": 81,
+      "groups": [
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 8,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 6,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "jungle_raptor",
+          "count": 5,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 93,
+      "spawnZ": 120,
+      "groups": [
+        {
+          "enemyId": "canyon_charger",
+          "count": 1,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 4,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "scrap_raider",
+          "count": 4,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.65,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 128,
+      "spawnZ": 154,
+      "groups": [
+        {
+          "enemyId": "sand_drone",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "dune_leela_s14",
+    "assetId": "boss_leela",
+    "name": "Sirocco Striker",
+    "hp": 99374,
+    "damage": 45,
+    "scale": 1.48,
+    "attackCooldown": 2.94,
+    "patterns": [
+      "projectile_barrage",
+      "area_slam",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "jungle_raptor",
+    "summonCount": 3,
+    "rewardCoins": 213,
+    "tintHex": "#ffd08a"
+  },
+  "rewardCoins": 284
+}

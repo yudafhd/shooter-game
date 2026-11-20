@@ -1,0 +1,193 @@
+{
+  "stageNumber": 7,
+  "name": "Mossy Courtyard",
+  "worldId": "overgrown_ruins",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_dungeon_floor",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 2,
+  "trackLength": 158,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 22,
+      "left": {
+        "type": "sub",
+        "value": 5,
+        "label": "-5"
+      },
+      "right": {
+        "type": "add",
+        "value": 7,
+        "label": "+7"
+      }
+    },
+    {
+      "z": 54,
+      "left": {
+        "type": "damage_buff",
+        "value": 24,
+        "label": "+24% DMG"
+      },
+      "right": {
+        "type": "add",
+        "value": 9,
+        "label": "+9"
+      }
+    },
+    {
+      "z": 88,
+      "left": {
+        "type": "sub",
+        "value": 6,
+        "label": "-6"
+      },
+      "right": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      }
+    },
+    {
+      "z": 117,
+      "left": {
+        "type": "rate_buff",
+        "value": 25,
+        "label": "+25% RATE"
+      },
+      "right": {
+        "type": "add",
+        "value": 11,
+        "label": "+11"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 39,
+      "x": 3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 22
+    },
+    {
+      "z": 65,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 26,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    },
+    {
+      "z": 91,
+      "x": 0,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 14,
+      "hp": 75
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 16,
+      "spawnZ": 38,
+      "groups": [
+        {
+          "enemyId": "moss_stego",
+          "count": 7,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 49,
+      "spawnZ": 74,
+      "groups": [
+        {
+          "enemyId": "ruin_spider",
+          "count": 6,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "canopy_wasp",
+          "count": 4,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "ruin_spider",
+          "count": 3,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 85,
+      "spawnZ": 111,
+      "groups": [
+        {
+          "enemyId": "jungle_raptor",
+          "count": 1,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "temple_cobra",
+          "count": 3,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "moss_stego",
+          "count": 3,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.5,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 114,
+      "spawnZ": 140,
+      "groups": [
+        {
+          "enemyId": "jungle_raptor",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "ruin_walker_s7",
+    "assetId": "boss_mike",
+    "name": "Mossbound Guardian",
+    "hp": 36357,
+    "damage": 31,
+    "scale": 1.45,
+    "attackCooldown": 3.1199999999999997,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "ruin_spider",
+    "summonCount": 3,
+    "rewardCoins": 129,
+    "tintHex": "#82d99a"
+  },
+  "rewardCoins": 172
+}

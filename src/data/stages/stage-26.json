@@ -1,0 +1,217 @@
+{
+  "stageNumber": 26,
+  "name": "Brimstone Gate",
+  "worldId": "inferno_citadel",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_dungeon_floor_lava",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 8,
+  "trackLength": 184,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 26,
+      "left": {
+        "type": "add",
+        "value": 15,
+        "label": "+15"
+      },
+      "right": {
+        "type": "sub",
+        "value": 11,
+        "label": "-11"
+      }
+    },
+    {
+      "z": 63,
+      "left": {
+        "type": "add",
+        "value": 17,
+        "label": "+17"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 36,
+        "label": "+36% DMG"
+      }
+    },
+    {
+      "z": 103,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 13,
+        "label": "-13"
+      }
+    },
+    {
+      "z": 136,
+      "left": {
+        "type": "add",
+        "value": 23,
+        "label": "+23"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 34,
+        "label": "+34% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 44,
+      "x": 0,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    },
+    {
+      "z": 60,
+      "x": 3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.1
+    },
+    {
+      "z": 75,
+      "x": -3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    },
+    {
+      "z": 90,
+      "x": 0,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 28,
+      "hp": 160
+    },
+    {
+      "z": 106,
+      "x": 3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 40,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.1
+    },
+    {
+      "z": 121,
+      "x": -3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 35
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 18,
+      "spawnZ": 44,
+      "groups": [
+        {
+          "enemyId": "obsidian_knight",
+          "count": 15,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 57,
+      "spawnZ": 86,
+      "groups": [
+        {
+          "enemyId": "pyro_juggernaut",
+          "count": 13,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "inferno_artillery",
+          "count": 9,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "ash_skull",
+          "count": 7,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 99,
+      "spawnZ": 129,
+      "groups": [
+        {
+          "enemyId": "obsidian_knight",
+          "count": 1,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 5,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "obsidian_knight",
+          "count": 6,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.95,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 140,
+      "spawnZ": 166,
+      "groups": [
+        {
+          "enemyId": "magma_raptor",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "cinder_stan_s26",
+    "assetId": "boss_stan",
+    "name": "Crucible Dreadnought",
+    "hp": 299339,
+    "damage": 67,
+    "scale": 1.65,
+    "attackCooldown": 2.58,
+    "patterns": [
+      "projectile_barrage",
+      "area_slam",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "ash_skull",
+    "summonCount": 3,
+    "rewardCoins": 357,
+    "tintHex": "#ff7043"
+  },
+  "rewardCoins": 476
+}

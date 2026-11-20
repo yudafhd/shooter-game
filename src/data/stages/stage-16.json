@@ -1,0 +1,211 @@
+{
+  "stageNumber": 16,
+  "name": "Dune Artillery Line",
+  "worldId": "dust_outpost",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_street_straight",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 4,
+  "trackLength": 188,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 26,
+      "left": {
+        "type": "add",
+        "value": 11,
+        "label": "+11"
+      },
+      "right": {
+        "type": "sub",
+        "value": 8,
+        "label": "-8"
+      }
+    },
+    {
+      "z": 64,
+      "left": {
+        "type": "add",
+        "value": 13,
+        "label": "+13"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 28,
+        "label": "+28% DMG"
+      }
+    },
+    {
+      "z": 105,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 9,
+        "label": "-9"
+      }
+    },
+    {
+      "z": 139,
+      "left": {
+        "type": "add",
+        "value": 17,
+        "label": "+17"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 28,
+        "label": "+28% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 45,
+      "x": 3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 18,
+      "hp": 100
+    },
+    {
+      "z": 64,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 30,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    },
+    {
+      "z": 83,
+      "x": 0,
+      "kind": "barrel",
+      "assetId": "obs_barrel",
+      "damage": 18,
+      "hp": 95
+    },
+    {
+      "z": 102,
+      "x": 3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 18,
+      "hp": 100
+    },
+    {
+      "z": 121,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 30,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 19,
+      "spawnZ": 45,
+      "groups": [
+        {
+          "enemyId": "scrap_raider",
+          "count": 11,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 58,
+      "spawnZ": 88,
+      "groups": [
+        {
+          "enemyId": "outpost_enforcer",
+          "count": 9,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "dune_gunner",
+          "count": 6,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "jungle_raptor",
+          "count": 5,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 102,
+      "spawnZ": 132,
+      "groups": [
+        {
+          "enemyId": "canyon_charger",
+          "count": 2,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 4,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "scrap_raider",
+          "count": 4,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.65,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 144,
+      "spawnZ": 170,
+      "groups": [
+        {
+          "enemyId": "sand_drone",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "bastion_stan_s16",
+    "assetId": "boss_stan",
+    "name": "Siege Bastion MK-IV",
+    "hp": 124240,
+    "damage": 48,
+    "scale": 1.55,
+    "attackCooldown": 2.94,
+    "patterns": [
+      "projectile_barrage",
+      "area_slam",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": true,
+    "summonEnemyId": "jungle_raptor",
+    "summonCount": 3,
+    "rewardCoins": 237,
+    "tintHex": "#f5b971"
+  },
+  "rewardCoins": 316
+}

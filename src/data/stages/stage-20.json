@@ -1,0 +1,217 @@
+{
+  "stageNumber": 20,
+  "name": "Icicle Bridge",
+  "worldId": "frozen_pass",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_dungeon_floor_snow",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 6,
+  "trackLength": 178,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 25,
+      "left": {
+        "type": "add",
+        "value": 13,
+        "label": "+13"
+      },
+      "right": {
+        "type": "sub",
+        "value": 9,
+        "label": "-9"
+      }
+    },
+    {
+      "z": 61,
+      "left": {
+        "type": "add",
+        "value": 15,
+        "label": "+15"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 32,
+        "label": "+32% DMG"
+      }
+    },
+    {
+      "z": 100,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 11,
+        "label": "-11"
+      }
+    },
+    {
+      "z": 132,
+      "left": {
+        "type": "add",
+        "value": 20,
+        "label": "+20"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 31,
+        "label": "+31% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 43,
+      "x": 0,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 22,
+      "hp": 130
+    },
+    {
+      "z": 58,
+      "x": 3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 28
+    },
+    {
+      "z": 73,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 34,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    },
+    {
+      "z": 88,
+      "x": 0,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 22,
+      "hp": 130
+    },
+    {
+      "z": 102,
+      "x": 3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 28
+    },
+    {
+      "z": 117,
+      "x": -3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 34,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 18,
+      "spawnZ": 43,
+      "groups": [
+        {
+          "enemyId": "frost_vanguard",
+          "count": 13,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 55,
+      "spawnZ": 84,
+      "groups": [
+        {
+          "enemyId": "ice_bull",
+          "count": 11,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "cryo_gunner",
+          "count": 7,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "frost_wolf",
+          "count": 6,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 96,
+      "spawnZ": 125,
+      "groups": [
+        {
+          "enemyId": "frost_vanguard",
+          "count": 1,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "sand_drone",
+          "count": 5,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "frost_vanguard",
+          "count": 5,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.8,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 134,
+      "spawnZ": 160,
+      "groups": [
+        {
+          "enemyId": "frost_wolf",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "frost_george_s20",
+    "assetId": "boss_george",
+    "name": "Permafrost Warden",
+    "hp": 183855,
+    "damage": 56,
+    "scale": 1.58,
+    "attackCooldown": 2.76,
+    "patterns": [
+      "projectile_barrage",
+      "area_slam",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": false,
+    "summonEnemyId": "frost_wolf",
+    "summonCount": 3,
+    "rewardCoins": 285,
+    "tintHex": "#a3e4ff"
+  },
+  "rewardCoins": 380
+}

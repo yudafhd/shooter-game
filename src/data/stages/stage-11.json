@@ -1,0 +1,202 @@
+{
+  "stageNumber": 11,
+  "name": "Elder Watch",
+  "worldId": "overgrown_ruins",
+  "isWorldFinale": false,
+  "arenaAssetId": "env_dungeon_floor",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 2,
+  "trackLength": 190,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 27,
+      "left": {
+        "type": "sub",
+        "value": 6,
+        "label": "-6"
+      },
+      "right": {
+        "type": "add",
+        "value": 8,
+        "label": "+8"
+      }
+    },
+    {
+      "z": 65,
+      "left": {
+        "type": "damage_buff",
+        "value": 24,
+        "label": "+24% DMG"
+      },
+      "right": {
+        "type": "add",
+        "value": 10,
+        "label": "+10"
+      }
+    },
+    {
+      "z": 106,
+      "left": {
+        "type": "sub",
+        "value": 7,
+        "label": "-7"
+      },
+      "right": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      }
+    },
+    {
+      "z": 141,
+      "left": {
+        "type": "rate_buff",
+        "value": 25,
+        "label": "+25% RATE"
+      },
+      "right": {
+        "type": "add",
+        "value": 14,
+        "label": "+14"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 46,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 26,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    },
+    {
+      "z": 70,
+      "x": 3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 14,
+      "hp": 75
+    },
+    {
+      "z": 93,
+      "x": -3.6,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 22
+    },
+    {
+      "z": 117,
+      "x": 0,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 26,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 2.35
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 19,
+      "spawnZ": 46,
+      "groups": [
+        {
+          "enemyId": "moss_stego",
+          "count": 9,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 59,
+      "spawnZ": 89,
+      "groups": [
+        {
+          "enemyId": "ruin_spider",
+          "count": 7,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "canopy_wasp",
+          "count": 5,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "ruin_spider",
+          "count": 4,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 103,
+      "spawnZ": 133,
+      "groups": [
+        {
+          "enemyId": "jungle_raptor",
+          "count": 3,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "temple_cobra",
+          "count": 3,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "moss_stego",
+          "count": 4,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.5,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 146,
+      "spawnZ": 172,
+      "groups": [
+        {
+          "enemyId": "jungle_raptor",
+          "count": 2,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "canopy_strikebot_s11",
+    "assetId": "boss_leela",
+    "name": "Verdant Stalker",
+    "hp": 67952,
+    "damage": 39,
+    "scale": 1.45,
+    "attackCooldown": 3.1199999999999997,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions"
+    ],
+    "hasPhaseTwo": true,
+    "summonEnemyId": "ruin_spider",
+    "summonCount": 3,
+    "rewardCoins": 177,
+    "tintHex": "#9ee6a8"
+  },
+  "rewardCoins": 236
+}

@@ -1,0 +1,202 @@
+{
+  "stageNumber": 12,
+  "name": "Colossus Altar",
+  "worldId": "overgrown_ruins",
+  "isWorldFinale": true,
+  "arenaAssetId": "env_dungeon_floor",
+  "gateAssetId": "env_arch_gate",
+  "goalAssetId": "prop_goal_flag",
+  "initialSquadBonus": 2,
+  "trackLength": 198,
+  "trackWidth": 13,
+  "gates": [
+    {
+      "z": 28,
+      "left": {
+        "type": "add",
+        "value": 9,
+        "label": "+9"
+      },
+      "right": {
+        "type": "sub",
+        "value": 6,
+        "label": "-6"
+      }
+    },
+    {
+      "z": 67,
+      "left": {
+        "type": "add",
+        "value": 11,
+        "label": "+11"
+      },
+      "right": {
+        "type": "damage_buff",
+        "value": 24,
+        "label": "+24% DMG"
+      }
+    },
+    {
+      "z": 111,
+      "left": {
+        "type": "mul",
+        "value": 2,
+        "label": "x2 SQUAD"
+      },
+      "right": {
+        "type": "sub",
+        "value": 8,
+        "label": "-8"
+      }
+    },
+    {
+      "z": 147,
+      "left": {
+        "type": "add",
+        "value": 14,
+        "label": "+14"
+      },
+      "right": {
+        "type": "rate_buff",
+        "value": 25,
+        "label": "+25% RATE"
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "z": 48,
+      "x": -3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 14,
+      "hp": 75
+    },
+    {
+      "z": 72,
+      "x": 0,
+      "kind": "spikes",
+      "assetId": "obs_spikes",
+      "damage": 22
+    },
+    {
+      "z": 97,
+      "x": 3.6,
+      "kind": "saw",
+      "assetId": "obs_saw",
+      "damage": 26,
+      "patrolWidth": 3.2,
+      "patrolSpeed": 1.6
+    },
+    {
+      "z": 122,
+      "x": -3.6,
+      "kind": "crate",
+      "assetId": "obs_crate",
+      "damage": 14,
+      "hp": 75
+    }
+  ],
+  "waves": [
+    {
+      "waveNumber": 1,
+      "kind": "normal",
+      "triggerZ": 20,
+      "spawnZ": 48,
+      "groups": [
+        {
+          "enemyId": "ruin_spider",
+          "count": 9,
+          "spreadX": 9.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 2,
+      "kind": "mixed",
+      "triggerZ": 61,
+      "spawnZ": 93,
+      "groups": [
+        {
+          "enemyId": "moss_stego",
+          "count": 8,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "temple_cobra",
+          "count": 5,
+          "spreadX": 10
+        },
+        {
+          "enemyId": "jungle_raptor",
+          "count": 4,
+          "spreadX": 10.5
+        }
+      ]
+    },
+    {
+      "waveNumber": 3,
+      "kind": "elite",
+      "triggerZ": 107,
+      "spawnZ": 139,
+      "groups": [
+        {
+          "enemyId": "moss_stego",
+          "count": 3,
+          "isElite": true,
+          "spreadX": 7.5
+        },
+        {
+          "enemyId": "canopy_wasp",
+          "count": 3,
+          "spreadX": 9.5
+        },
+        {
+          "enemyId": "ruin_spider",
+          "count": 4,
+          "spreadX": 9.5
+        }
+      ],
+      "eliteModifier": {
+        "hpMultiplier": 2.5,
+        "damageMultiplier": 1.45,
+        "scaleMultiplier": 1.38,
+        "cleaveRadius": 2.6
+      }
+    },
+    {
+      "waveNumber": 4,
+      "kind": "boss",
+      "triggerZ": 154,
+      "spawnZ": 180,
+      "groups": [
+        {
+          "enemyId": "ruin_spider",
+          "count": 4,
+          "spreadX": 9
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "bossId": "ancient_colossus_s12",
+    "assetId": "boss_george",
+    "name": "Overgrown Colossus (World Finale)",
+    "hp": 107174,
+    "damage": 48,
+    "scale": 1.55,
+    "attackCooldown": 2.8699999999999997,
+    "patterns": [
+      "area_slam",
+      "projectile_barrage",
+      "summon_minions",
+      "charge_rush"
+    ],
+    "hasPhaseTwo": true,
+    "summonEnemyId": "jungle_raptor",
+    "summonCount": 4,
+    "rewardCoins": 249,
+    "tintHex": "#7ed490"
+  },
+  "rewardCoins": 342
+}
