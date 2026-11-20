@@ -241,6 +241,9 @@ export interface HUDState {
   bossMaxHp: number;
   bossPhase: 1 | 2;
   bossWarning: string;
+  ultCharge: number; // 0..100
+  ultReady: boolean;
+  ultStatus: 'charging' | 'ready' | 'launching' | 'inbound';
   fps: number;
   quality: QualityPreset;
 }

@@ -17,6 +17,7 @@ import { BossStateMachine } from '../gameplay/BossStateMachine';
 import { WaveDirector } from '../gameplay/WaveDirector';
 import { CombatSystem } from '../gameplay/CombatSystem';
 import { StageDirector } from '../gameplay/StageDirector';
+import { UltimateSystem } from '../gameplay/UltimateSystem';
 
 export type EngineMode = 'menu' | 'loading' | 'playing' | 'paused' | 'victory_march' | 'ended';
 
@@ -50,6 +51,7 @@ export class GameEngine {
   private boss: BossStateMachine;
   private waveDirector: WaveDirector;
   private combat: CombatSystem;
+  private ultimate: UltimateSystem;
 
   private callbacks: EngineCallbacks;
   private mode: EngineMode = 'menu';
@@ -110,6 +112,9 @@ export class GameEngine {
     this.boss = new BossStateMachine(this.scene, this.assets);
     this.waveDirector = new WaveDirector();
     this.combat = new CombatSystem();
+    this.ultimate = new UltimateSystem(this.scene, this.assets);
+
+    this.input.setOnUltimate(() => this.triggerUltimate());
 
     window.addEventListener('resize', this.onResize);
     window.addEventListener('keydown', this.onGlobalKey);
@@ -190,6 +195,7 @@ export class GameEngine {
     this.enemies.setTrackWidth(stage.trackWidth);
     this.gates.clear();
     this.boss.clearBossModel();
+    this.ultimate.initStage();
 
     await this.stageDirector.buildStage(stage, world, profile);
 
@@ -251,9 +257,25 @@ export class GameEngine {
     this.enemies.clear();
     this.boss.clearBossModel();
     this.gates.clear();
+    this.ultimate.clearActive();
     this.squad.movingForward = false;
     this.squad.setCelebration(false);
     this.setMode('menu');
+  }
+
+  public triggerUltimate(): boolean {
+    if (this.mode !== 'playing') return false;
+    const launched = this.ultimate.trigger(
+      this.squad,
+      this.enemies,
+      this.boss,
+      this.weapons,
+      this.audio,
+      this.cameraCtrl,
+      this.callbacks.onBanner
+    );
+    if (launched) this.emitHud();
+    return launched;
   }
 
   public applySettings(): void {
@@ -372,7 +394,26 @@ export class GameEngine {
     this.lastTargetX = combatRes.primaryTargetX;
     this.lastTargetZ = combatRes.primaryTargetZ;
 
-    if (combatRes.bossKilled && this.mode === 'playing') {
+    if (combatRes.enemiesKilled > 0) {
+      this.ultimate.addCharge(combatRes.enemiesKilled * 6.5);
+    }
+
+    // 5b. Ultimate Rocket Ballistic Flight & Detonation
+    const ultRes = this.ultimate.update(
+      dt,
+      this.squad,
+      this.enemies,
+      this.boss,
+      this.gates,
+      this.weapons,
+      this.audio,
+      this.cameraCtrl,
+      this.callbacks.onBanner
+    );
+    this.stageCoins += ultRes.coinsEarned;
+    this.enemiesDefeated += ultRes.enemiesKilled;
+
+    if ((combatRes.bossKilled || ultRes.bossKilled) && this.mode === 'playing') {
       this.setMode('victory_march');
       this.squad.movingForward = true;
       this.callbacks.onBanner('BOSS DEFEATED! ADVANCE TO FINISH!', 'good');
@@ -470,6 +511,9 @@ export class GameEngine {
       bossMaxHp: this.boss.maxHp,
       bossPhase: this.boss.phase,
       bossWarning: this.boss.warningText,
+      ultCharge: this.ultimate.charge,
+      ultReady: this.ultimate.isReady(),
+      ultStatus: this.ultimate.getStatus(),
       fps: this.perf.getFps(),
       quality: this.perf.getPreset()
     });
@@ -485,6 +529,7 @@ export class GameEngine {
     this.gates.dispose();
     this.enemies.dispose();
     this.boss.dispose();
+    this.ultimate.dispose();
     this.stageDirector.dispose();
     this.assets.dispose();
     this.renderer.dispose();

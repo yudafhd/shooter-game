@@ -7,10 +7,15 @@ export class InputController {
   private halfBound = 4.8;
   private keys = new Set<string>();
   private enabled = false;
+  private onUltimateCb: (() => void) | null = null;
 
   constructor(element: HTMLElement) {
     this.element = element;
     this.bindEvents();
+  }
+
+  public setOnUltimate(cb: () => void): void {
+    this.onUltimateCb = cb;
   }
 
   public setEnabled(enabled: boolean): void {
@@ -93,6 +98,9 @@ export class InputController {
     if (!this.enabled) return;
     if (['ArrowLeft', 'ArrowRight', 'KeyA', 'KeyD'].includes(e.code)) {
       this.keys.add(e.code);
+    } else if (e.code === 'Space' || e.code === 'KeyR' || e.code === 'KeyQ') {
+      e.preventDefault();
+      this.onUltimateCb?.();
     }
   };
 

@@ -214,6 +214,7 @@ export class AssetRegistry {
     const ids = new Set<string>([
       'char_soldier',
       'char_commander',
+      'weapon_rocket',
       'prop_coin',
       'prop_chest_gold',
       stage.arenaAssetId,

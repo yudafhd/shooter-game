@@ -244,6 +244,27 @@ async function main() {
   }
   console.log(`   Fetched & audited ${QUATERNIUS_ASSETS.length} Quaternius GLBs.`);
 
+  // Download verified CC0 Warhead Rocket GLB from Poly Pizza (hat_my_guy, CC0 1.0)
+  {
+    const rocketDest = path.join(MODELS_DIR, 'weapon_rocket.glb');
+    const rocketUrl = 'https://static.poly.pizza/244c027c-40f0-45ca-a707-0f8e855c9831.glb';
+    const res = await fetch(rocketUrl, { headers: { 'User-Agent': UA } });
+    if (!res.ok) throw new Error(`Failed downloading Poly Pizza CC0 Rocket: ${res.status}`);
+    fs.writeFileSync(rocketDest, Buffer.from(await res.arrayBuffer()));
+    const info = inspectGlb(rocketDest);
+    manifest.models.weapon_rocket = {
+      id: 'weapon_rocket',
+      category: 'weapon',
+      source: 'Poly Pizza — Rocket (hat_my_guy)',
+      owner: 'hat_my_guy (via Poly Pizza)',
+      license: 'CC0 1.0 Universal',
+      originUrl: 'https://poly.pizza/m/9awwTQWYux',
+      path: 'assets/models/weapon_rocket.glb',
+      ...info
+    };
+    console.log(`   Fetched & audited Poly Pizza CC0 Rocket GLB (${(info.sizeBytes / 1024).toFixed(0)}KB).`);
+  }
+
   console.log('2/4 Downloading official Kenney CC0 3D kits & audio packs...');
   const kenneyPacks = [
     { slug: 'assets/city-kit-roads', dir: path.join(TMP_DIR, 'kenney_roads') },

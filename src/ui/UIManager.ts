@@ -29,6 +29,10 @@ export class UIManager {
   private bossWarnEl!: HTMLElement;
   private bannerEl!: HTMLElement;
   private dragHintEl!: HTMLElement;
+  private ultBtnEl!: HTMLButtonElement;
+  private ultFillEl!: HTMLElement;
+  private ultLabelEl!: HTMLElement;
+  private ultPctEl!: HTMLElement;
   private bannerTimeout = 0;
 
   // Overlays
@@ -85,6 +89,16 @@ export class UIManager {
 
         <div class="event-banner hidden" id="event-banner"></div>
         <div class="drag-hint hidden" id="drag-hint">↔ DRAG LEFT / RIGHT (OR A / D) TO STEER SQUAD</div>
+
+        <div class="ult-wrap">
+          <button class="ult-btn" id="btn-ult" aria-label="Launch Rocket Ultimate" disabled>
+            <div class="ult-fill" id="ult-fill"></div>
+            <span class="ult-icon">🚀</span>
+            <span class="ult-label" id="ult-label">ROCKET</span>
+            <span class="ult-pct" id="ult-pct">50%</span>
+          </button>
+          <span class="ult-hotkey">SPACE / TAP</span>
+        </div>
       </div>
 
       <div id="overlay-container" class="overlay-container"></div>
@@ -114,6 +128,10 @@ export class UIManager {
     this.bossWarnEl = this.root.querySelector('#boss-warning')!;
     this.bannerEl = this.root.querySelector('#event-banner')!;
     this.dragHintEl = this.root.querySelector('#drag-hint')!;
+    this.ultBtnEl = this.root.querySelector('#btn-ult')!;
+    this.ultFillEl = this.root.querySelector('#ult-fill')!;
+    this.ultLabelEl = this.root.querySelector('#ult-label')!;
+    this.ultPctEl = this.root.querySelector('#ult-pct')!;
     this.overlayContainer = this.root.querySelector('#overlay-container')!;
     this.loadingEl = this.root.querySelector('#loading-overlay')!;
     this.loadingFill = this.root.querySelector('#loading-fill')!;
@@ -122,6 +140,11 @@ export class UIManager {
     this.root.querySelector('#btn-pause')!.addEventListener('click', () => {
       this.clickSfx();
       this.engine.pause();
+    });
+
+    this.ultBtnEl.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.engine.triggerUltimate();
     });
   }
 
@@ -212,6 +235,29 @@ export class UIManager {
       }
     } else {
       this.bossBarWrap.classList.add('hidden');
+    }
+
+    // Rocket Ultimate Button state
+    const pct = Math.max(0, Math.min(100, Math.round(hud.ultCharge)));
+    this.ultFillEl.style.height = `${pct}%`;
+    this.ultBtnEl.disabled = !hud.ultReady;
+    this.ultBtnEl.classList.toggle('ready', hud.ultReady);
+    this.ultBtnEl.classList.toggle(
+      'active-flight',
+      hud.ultStatus === 'launching' || hud.ultStatus === 'inbound'
+    );
+    if (hud.ultStatus === 'launching') {
+      this.ultLabelEl.textContent = 'LAUNCH!';
+      this.ultPctEl.textContent = '▲▲▲';
+    } else if (hud.ultStatus === 'inbound') {
+      this.ultLabelEl.textContent = 'INBOUND';
+      this.ultPctEl.textContent = 'LOCK';
+    } else if (hud.ultReady) {
+      this.ultLabelEl.textContent = 'READY!';
+      this.ultPctEl.textContent = 'FIRE';
+    } else {
+      this.ultLabelEl.textContent = 'ROCKET';
+      this.ultPctEl.textContent = `${pct}%`;
     }
   }
 
